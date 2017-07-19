@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 class Header extends Component {
 
     renderMenu() {
-        if(localStorage.getItem('token')) {
+        if(this.props.authenticated) {
             return [
                 <li key={1}><Link to="/signout">Sign out</Link></li>
             ];
@@ -28,6 +28,10 @@ class Header extends Component {
     }
 }
 
-
+const mapStateToProps = (state) => {
+    return {
+        authenticated: state.auth.authenticated
+    }
+}
 
 export default connect(null)(Header);

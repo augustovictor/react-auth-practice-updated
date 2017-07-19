@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { authUser } from '../../actions';
-import { AUTH_MESSAGE } from '../../actions/types';
 
 class Signin extends Component {
 
