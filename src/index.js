@@ -14,11 +14,16 @@ import Signin from './components/auth/signin';
 import Signout from './components/auth/signout';
 import RequireAuth from './components/require_auth';
 import history from './components/history';
+import { AUTH_USER } from './actions/types';
 
 import registerServiceWorker from './registerServiceWorker';
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 const store = createStoreWithMiddleware(reducers);
+
+if(localStorage.getItem('token')) {
+    store.dispatch({ type: AUTH_USER })
+}
 
 ReactDOM.render(
 <Provider store={ store }>

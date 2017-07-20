@@ -23,6 +23,7 @@ export function unauthUser() {
     return dispatch => {
         localStorage.removeItem('token');
         dispatch({ type: UNAUTH_USER });
+        history.push('/');
         dispatch(authMessage('Successfully logged out.'))
     }
 }
